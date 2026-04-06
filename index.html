@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ PRIMARY SEO ═══ -->
+  <title>TradePerformance — The Trading Journal Built for Serious Active Traders</title>
+  <meta name="description" content="TradePerformance is a desktop-first trading journal for futures, crypto, forex, and equities traders. Local data storage, AI coaching, comprehensive performance analytics. Your trades. Your data. Your edge." />
+  <meta name="keywords" content="trading journal, futures trading journal, crypto trading journal, forex trading journal, prop firm trading journal, order flow trading journal, trade performance, active trader tools, desktop trading journal" />
+  <link rel="canonical" href="https://tradeperformanceapp.com/" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tradeperformanceapp.com/" />
+  <meta property="og:title" content="TradePerformance — Your Trades. Your Data. Your Edge." />
+  <meta property="og:description" content="A desktop-first trading journal built for serious active traders. Local data storage, AI coaching, and deep performance analytics across futures, crypto, forex, and equities." />
+  <meta property="og:image" content="https://tradeperformanceapp.com/assets/og-image.png" />
+  <meta property="og:site_name" content="TradePerformance" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@tradeperformanceapp" />
+  <meta name="twitter:title" content="TradePerformance — Your Trades. Your Data. Your Edge." />
+  <meta name="twitter:description" content="Desktop-first trading journal for serious active traders. Local storage, AI coaching, deep analytics." />
+  <meta name="twitter:image" content="https://tradeperformanceapp.com/assets/og-image.png" />
+
+  <!-- ═══ STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TradePerformance",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Windows, macOS, Web",
+    "description": "A desktop-first trading journal for serious active traders across futures, crypto, forex, and equities. Features local data storage, AI coaching, and comprehensive performance analytics.",
+    "url": "https://tradeperformanceapp.com",
+    "offers": {
+      "@type": "Offer",
+      "description": "One-time purchase and subscription options available. Join the founders waitlist for early access pricing."
+    },
+    "featureList": [
+      "Local-first data storage",
+      "AI performance coaching",
+      "Comprehensive trade journaling",
+      "Order flow analytics",
+      "Desktop app with web companion",
+      "Compatible with all major trading platforms",
+      "Futures, crypto, forex, and equities support"
+    ]
+  }
+  </script>
+
+  <!-- ═══ FONTS ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #07090f;
+      --bg2:        #0c0f1a;
+      --bg3:        #111525;
+      --border:     rgba(255,255,255,0.06);
+      --border2:    rgba(255,255,255,0.10);
+      --teal:       #0de5a8;
+      --teal-dim:   rgba(13,229,168,0.08);
+      --teal-mid:   rgba(13,229,168,0.18);
+      --orange:     #ff7c3a;
+      --orange-dim: rgba(255,124,58,0.08);
+      --text1:      #edf2ff;
+      --text2:      #8899bb;
+      --text3:      #4a5a7a;
+      --green:      #0de5a8;
+      --red:        #ff5252;
+      --font-d:     'Syne', sans-serif;
+      --font-b:     'IBM Plex Sans', sans-serif;
+      --font-m:     'IBM Plex Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text1);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(13,229,168,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,229,168,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Glow orbs */
+    .glow-1 {
+      position: fixed; top: -250px; left: 50%;
+      transform: translateX(-50%);
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(13,229,168,0.06) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .glow-2 {
+      position: fixed; bottom: -150px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, rgba(255,124,58,0.04) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(7,9,15,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-d);
+      font-size: 17px; font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text1); text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo-dot {
+      width: 7px; height: 7px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(0.75); }
+    }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a {
+      color: var(--text2); text-decoration:none;
+      font-size:14px; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text1); }
+    .btn-nav {
+      background: var(--teal-dim);
+      color: var(--teal);
+      border: 1px solid rgba(13,229,168,0.22);
+      padding: 8px 20px; border-radius: 6px;
+      font-family: var(--font-b); font-size: 14px; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-nav:hover { background: var(--teal-mid); border-color: rgba(13,229,168,0.45); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 100px 24px 72px;
+      max-width: 960px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal-dim);
+      border: 1px solid rgba(13,229,168,0.18);
+      border-radius: 100px; padding: 5px 16px;
+      font-family: var(--font-m); font-size: 12px; color: var(--teal);
+      margin-bottom: 36px;
+      opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--teal); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    h1 {
+      font-family: var(--font-d);
+      font-size: clamp(42px, 7.5vw, 76px);
+      font-weight: 800; line-height: 1.06;
+      letter-spacing: -0.035em; color: var(--text1);
+      margin-bottom: 10px;
+      opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+    }
+    .hero-tagline {
+      font-family: var(--font-d);
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 500; color: var(--teal);
+      letter-spacing: -0.01em; margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.6s 0.3s forwards;
+    }
+    .hero-sub {
+      font-size: 18px; font-weight: 300;
+      color: var(--text2); line-height: 1.65;
+      max-width: 600px; margin: 0 auto 16px;
+      opacity: 0; animation: fadeUp 0.6s 0.35s forwards;
+    }
+    .hero-markets {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap; margin-bottom: 44px;
+      opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
+    }
+    .market-tag {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--text3);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 4px;
+    }
+    .market-tag.active { color: var(--teal); border-color: rgba(13,229,168,0.2); background: var(--teal-dim); }
+
+    /* Waitlist form */
+    .waitlist-wrap {
+      opacity: 0; animation: fadeUp 0.6s 0.45s forwards;
+    }
+    .waitlist-form {
+      display: flex; gap: 8px;
+      max-width: 460px; margin: 0 auto 12px;
+    }
+    .waitlist-form input {
+      flex: 1;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 8px; padding: 14px 16px;
+      color: var(--text1);
+      font-family: var(--font-b); font-size: 15px;
+      outline: none; transition: border-color 0.2s;
+    }
+    .waitlist-form input::placeholder { color: var(--text3); }
+    .waitlist-form input:focus { border-color: rgba(13,229,168,0.45); }
+    .btn-primary {
+      background: var(--teal); color: #07090f;
+      border: none; border-radius: 8px;
+      padding: 14px 26px;
+      font-family: var(--font-d); font-size: 15px; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .waitlist-note { font-size: 12px; color: var(--text3); }
+    .waitlist-pricing-note {
+      font-family: var(--font-m); font-size: 12px;
+      color: var(--orange); margin-top: 8px;
+    }
+    .waitlist-success {
+      display: none;
+      background: var(--teal-dim);
+      border: 1px solid rgba(13,229,168,0.2);
+      border-radius: 8px; padding: 14px 20px;
+      font-family: var(--font-m); font-size: 14px; color: var(--teal);
+      max-width: 460px; margin: 0 auto;
+    }
+
+    /* Mock terminal dashboard */
+    .dashboard-wrap {
+      position: relative; z-index: 1;
+      max-width: 880px; margin: 72px auto 0;
+      opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .dashboard-glow {
+      position: absolute; inset: -60px;
+      background: radial-gradient(ellipse at center, rgba(13,229,168,0.055) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .dashboard {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 48px 96px rgba(0,0,0,0.55);
+    }
+    .db-titlebar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 18px;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+    }
+    .db-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .db-dot.r { background: #ff5f57; }
+    .db-dot.y { background: #ffbd2e; }
+    .db-dot.g { background: #28ca42; }
+    .db-title-text {
+      font-family: var(--font-m); font-size: 12px;
+      color: var(--text3); margin-left: 8px; flex: 1;
+    }
+    .db-platform-tag {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--teal);
+      background: var(--teal-dim);
+      border: 1px solid rgba(13,229,168,0.15);
+      padding: 2px 10px; border-radius: 4px;
+    }
+    .db-metrics {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+    .db-metric {
+      padding: 18px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .db-metric:last-child { border-right: none; }
+    .db-metric-label {
+      font-family: var(--font-m); font-size: 10px;
+      color: var(--text3); text-transform: uppercase;
+      letter-spacing: 0.08em; margin-bottom: 6px;
+    }
+    .db-metric-value {
+      font-family: var(--font-m); font-size: 20px;
+      font-weight: 500; color: var(--text1);
+    }
+    .db-metric-value.pos { color: var(--green); }
+    .db-metric-value.neg { color: var(--red); }
+    .db-metric-sub {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--text3); margin-top: 3px;
+    }
+    .db-body {
+      display: grid; grid-template-columns: 1fr 260px;
+    }
+    .db-chart { padding: 20px; border-right: 1px solid var(--border); }
+    .db-chart-label {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--text3); margin-bottom: 12px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .db-equity { width: 100%; height: 110px; }
+    .db-journal { padding: 18px; }
+    .db-journal-label {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--text3); margin-bottom: 12px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .db-journal-entry {
+      font-size: 12px; color: var(--text2);
+      line-height: 1.6; margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .db-journal-entry:last-child { border-bottom: none; margin-bottom: 0; }
+    .db-journal-time {
+      font-family: var(--font-m); font-size: 10px;
+      color: var(--text3); margin-bottom: 4px;
+    }
+    .db-ai-bar {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 20px;
+      background: var(--bg3);
+      border-top: 1px solid var(--border);
+    }
+    .db-ai-label {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--teal); opacity: 0.7;
+    }
+    .db-ai-text {
+      font-size: 12px; color: var(--text2);
+      font-style: italic;
+    }
+
+    /* ── SECTION BASE ── */
+    section { position: relative; z-index: 1; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 96px 48px; }
+    .section-label {
+      font-family: var(--font-m); font-size: 12px;
+      color: var(--teal); text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 16px;
+    }
+    h2 {
+      font-family: var(--font-d);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700; letter-spacing: -0.025em;
+      line-height: 1.12; color: var(--text1); margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 17px; color: var(--text2);
+      line-height: 1.7; max-width: 560px;
+    }
+
+    /* ── MARQUEE BAR ── */
+    .marquee-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden; padding: 16px 0;
+      background: var(--bg2);
+    }
+    .marquee-track {
+      display: flex; gap: 48px;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-family: var(--font-m); font-size: 12px;
+      color: var(--text3); white-space: nowrap;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .marquee-item::before {
+      content: '//'; color: var(--teal); opacity: 0.5;
+    }
+
+    /* ── VALUE PROPS ── */
+    .props-bg {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .props-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; margin-top: 60px;
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .prop-card {
+      background: var(--bg);
+      padding: 36px 32px;
+      border-right: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .prop-card:hover { background: var(--bg3); }
+    .prop-card:last-child { border-right: none; }
+    .prop-icon {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--teal);
+      background: var(--teal-dim);
+      border: 1px solid rgba(13,229,168,0.15);
+      padding: 4px 12px; border-radius: 4px;
+      display: inline-block; margin-bottom: 20px;
+    }
+    .prop-title {
+      font-family: var(--font-d); font-size: 20px; font-weight: 700;
+      letter-spacing: -0.01em; margin-bottom: 10px; color: var(--text1);
+    }
+    .prop-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; margin-top: 60px;
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .feature-card {
+      background: var(--bg2); padding: 36px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .feature-card:hover { background: var(--bg3); }
+    .feature-card:nth-child(even) { border-right: none; }
+    .feature-card:nth-last-child(-n+2) { border-bottom: none; }
+    .feature-num {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--teal); opacity: 0.5; margin-bottom: 16px;
+    }
+    .feature-title {
+      font-family: var(--font-d); font-size: 20px; font-weight: 700;
+      letter-spacing: -0.01em; margin-bottom: 10px; color: var(--text1);
+    }
+    .feature-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
+    .feature-tag {
+      display: inline-block; margin-top: 16px;
+      font-family: var(--font-m); font-size: 11px; color: var(--teal);
+      background: var(--teal-dim);
+      border: 1px solid rgba(13,229,168,0.15);
+      padding: 3px 10px; border-radius: 4px;
+    }
+
+    /* ── DESKTOP/WEB SPLIT ── */
+    .split-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 56px;
+    }
+    .split-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px;
+      transition: border-color 0.3s;
+    }
+    .split-card:hover { border-color: var(--border2); }
+    .split-card.primary { border-color: rgba(13,229,168,0.2); }
+    .split-badge {
+      font-family: var(--font-m); font-size: 11px;
+      padding: 4px 12px; border-radius: 4px;
+      display: inline-block; margin-bottom: 20px;
+    }
+    .split-badge.primary { color: var(--teal); background: var(--teal-dim); border: 1px solid rgba(13,229,168,0.2); }
+    .split-badge.secondary { color: var(--text3); background: var(--bg3); border: 1px solid var(--border); }
+    .split-title {
+      font-family: var(--font-d); font-size: 24px; font-weight: 700;
+      margin-bottom: 12px; color: var(--text1);
+    }
+    .split-desc { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+    .split-list { list-style: none; }
+    .split-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text2);
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+    }
+    .split-list li:last-child { border-bottom: none; }
+    .split-list li::before {
+      content: '→'; font-family: var(--font-m);
+      font-size: 12px; color: var(--teal);
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* ── MARKETS ── */
+    .markets-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-top: 56px;
+    }
+    .market-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px 24px;
+      text-align: center;
+      transition: border-color 0.3s, background 0.2s;
+    }
+    .market-card:hover { border-color: var(--border2); background: var(--bg3); }
+    .market-card.first { border-color: rgba(13,229,168,0.2); }
+    .market-order {
+      font-family: var(--font-m); font-size: 10px;
+      color: var(--text3); margin-bottom: 10px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .market-card.first .market-order { color: var(--teal); }
+    .market-name {
+      font-family: var(--font-d); font-size: 22px; font-weight: 800;
+      color: var(--text1); margin-bottom: 8px;
+    }
+    .market-card.first .market-name { color: var(--teal); }
+    .market-desc { font-size: 13px; color: var(--text3); line-height: 1.5; }
+
+    /* ── PRICING ── */
+    .pricing-bg {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-box {
+      max-width: 580px; margin: 56px auto 0;
+      background: var(--bg);
+      border: 1px solid var(--border2);
+      border-radius: 16px; padding: 52px;
+      text-align: center;
+    }
+    .pricing-eyebrow {
+      display: inline-block;
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--orange);
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,124,58,0.2);
+      padding: 4px 14px; border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    .pricing-headline {
+      font-family: var(--font-d); font-size: 34px; font-weight: 800;
+      letter-spacing: -0.025em; margin-bottom: 16px;
+    }
+    .pricing-sub {
+      font-size: 16px; color: var(--text2);
+      line-height: 1.65; margin-bottom: 32px;
+    }
+    .pricing-options {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 36px;
+    }
+    .pricing-option {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px;
+      text-align: center;
+    }
+    .pricing-option-label {
+      font-family: var(--font-m); font-size: 11px;
+      color: var(--text3); margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .pricing-option-value {
+      font-family: var(--font-d); font-size: 18px; font-weight: 700;
+      color: var(--text1); margin-bottom: 6px;
+    }
+    .pricing-option-note { font-size: 12px; color: var(--text3); }
+    .pricing-option.featured {
+      border-color: rgba(13,229,168,0.25);
+      background: var(--teal-dim);
+    }
+    .pricing-option.featured .pricing-option-label { color: var(--teal); }
+    .pricing-option.featured .pricing-option-value { color: var(--teal); }
+    .pricing-waitlist-note {
+      font-size: 13px; color: var(--text3); margin-bottom: 28px;
+    }
+
+    /* ── FINAL CTA ── */
+    .cta-inner {
+      max-width: 640px; margin: 0 auto;
+      padding: 96px 48px; text-align: center;
+    }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .disclaimer-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 24px 48px;
+      font-size: 12px; color: var(--text3);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 1;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 32px 48px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: var(--font-d); font-size: 14px; font-weight: 700;
+      color: var(--text3); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .footer-logo-dot { width: 5px; height: 5px; background: var(--teal); border-radius: 50%; }
+    .footer-links { display:flex; gap:24px; list-style:none; }
+    .footer-links a { font-size:13px; color:var(--text3); text-decoration:none; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--text2); }
+    .footer-copy { font-family: var(--font-m); font-size: 12px; color: var(--text3); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .reveal {
+      opacity:0; transform:translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .section-inner { padding: 64px 24px; }
+      .props-grid { grid-template-columns: 1fr; }
+      .prop-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card:nth-child(even) { border-right: none; }
+      .split-grid { grid-template-columns: 1fr; }
+      .markets-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-options { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+      .waitlist-form { flex-direction: column; }
+      .db-metrics { grid-template-columns: repeat(3, 1fr); }
+      .db-body { grid-template-columns: 1fr; }
+      .db-journal { display: none; }
+      .pricing-box { padding: 32px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      TradePerformance
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#markets">Markets</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <a href="#waitlist" class="btn-nav">Join Founders Waitlist →</a>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="hero-badge">Founders Waitlist — Now Open</div>
+    <h1>Your Trades.<br>Your Data.<br>Your Edge.</h1>
+    <p class="hero-tagline">The trading journal built for performance.</p>
+    <p class="hero-sub">
+      A desktop-first performance OS for serious active traders. Local data storage, AI-powered coaching, and deep analytics — built to help you trade better, not just track more.
+    </p>
+    <div class="hero-markets">
+      <span class="market-tag active">Futures</span>
+      <span class="market-tag active">Prop Firm</span>
+      <span class="market-tag">Crypto</span>
+      <span class="market-tag">Forex</span>
+      <span class="market-tag">Equities</span>
+    </div>
+
+    <div class="waitlist-wrap" id="waitlist">
+      <form class="waitlist-form" id="waitlistForm">
+        <input type="email" id="emailInput" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit" class="btn-primary">Join Waitlist</button>
+      </form>
+      <div class="waitlist-success" id="waitlistSuccess">
+        ✓ &nbsp;You're on the founders list. We'll be in touch with early access details.
+      </div>
+      <p class="waitlist-note">No commitment required. Early access members receive founders pricing.</p>
+      <p class="waitlist-pricing-note">→ One-time purchase and subscription options available at launch.</p>
+    </div>
+
+    <!-- Mock terminal dashboard -->
+    <div class="dashboard-wrap">
+      <div class="dashboard-glow"></div>
+      <div class="dashboard">
+        <div class="db-titlebar">
+          <div class="db-dot r"></div>
+          <div class="db-dot y"></div>
+          <div class="db-dot g"></div>
+          <span class="db-title-text">TradePerformance Desktop — Session Review</span>
+          <span class="db-platform-tag">Local Storage · Synced</span>
+        </div>
+        <div class="db-metrics">
+          <div class="db-metric">
+            <div class="db-metric-label">Net P&amp;L</div>
+            <div class="db-metric-value pos">+$1,842</div>
+            <div class="db-metric-sub">Today</div>
+          </div>
+          <div class="db-metric">
+            <div class="db-metric-label">Win Rate</div>
+            <div class="db-metric-value">68%</div>
+            <div class="db-metric-sub">12 trades</div>
+          </div>
+          <div class="db-metric">
+            <div class="db-metric-label">Avg R:R</div>
+            <div class="db-metric-value">2.6</div>
+            <div class="db-metric-sub">vs plan 2.0</div>
+          </div>
+          <div class="db-metric">
+            <div class="db-metric-label">Playbook</div>
+            <div class="db-metric-value pos">9/12</div>
+            <div class="db-metric-sub">Adherence</div>
+          </div>
+          <div class="db-metric">
+            <div class="db-metric-label">Mental</div>
+            <div class="db-metric-value pos">8.5</div>
+            <div class="db-metric-sub">AM session</div>
+          </div>
+        </div>
+        <div class="db-body">
+          <div class="db-chart">
+            <div class="db-chart-label">Equity Curve — Session</div>
+            <svg class="db-equity" viewBox="0 0 520 110" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="eg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0de5a8" stop-opacity="0.18"/>
+                  <stop offset="100%" stop-color="#0de5a8" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#eg)" d="M0,95 C20,90 40,78 70,65 C100,52 115,58 140,44 C165,30 180,36 205,22 C230,10 248,24 275,14 C302,4 325,18 355,10 C385,2 410,7 445,3 C470,0 500,4 520,1 L520,110 L0,110 Z"/>
+              <path fill="none" stroke="#0de5a8" stroke-width="1.5" d="M0,95 C20,90 40,78 70,65 C100,52 115,58 140,44 C165,30 180,36 205,22 C230,10 248,24 275,14 C302,4 325,18 355,10 C385,2 410,7 445,3 C470,0 500,4 520,1"/>
+            </svg>
+          </div>
+          <div class="db-journal">
+            <div class="db-journal-label">Session Notes</div>
+            <div class="db-journal-entry">
+              <div class="db-journal-time">09:32 AM</div>
+              Strong open, followed plan. Waited for confirmation before entry.
+            </div>
+            <div class="db-journal-entry">
+              <div class="db-journal-time">11:15 AM</div>
+              Felt FOMO on the 3rd trade — took it anyway. Outside playbook.
+            </div>
+            <div class="db-journal-entry">
+              <div class="db-journal-time">01:48 PM</div>
+              Stopped after daily target hit. Discipline improving week over week.
+            </div>
+          </div>
+        </div>
+        <div class="db-ai-bar">
+          <span class="db-ai-label">AI Coach →</span>
+          <span class="db-ai-text">"Your win rate drops 22% after 11:30 AM. Consider cutting your session at midday."</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MARQUEE ══ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">Desktop-first application</span>
+      <span class="marquee-item">Local data storage</span>
+      <span class="marquee-item">AI performance coaching</span>
+      <span class="marquee-item">Order flow compatible</span>
+      <span class="marquee-item">All major platforms supported</span>
+      <span class="marquee-item">Futures · Crypto · Forex · Equities</span>
+      <span class="marquee-item">One-time purchase available</span>
+      <span class="marquee-item">Web companion included</span>
+      <span class="marquee-item">CSV import from any broker</span>
+      <span class="marquee-item">Prop firm trader ready</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Desktop-first application</span>
+      <span class="marquee-item">Local data storage</span>
+      <span class="marquee-item">AI performance coaching</span>
+      <span class="marquee-item">Order flow compatible</span>
+      <span class="marquee-item">All major platforms supported</span>
+      <span class="marquee-item">Futures · Crypto · Forex · Equities</span>
+      <span class="marquee-item">One-time purchase available</span>
+      <span class="marquee-item">Web companion included</span>
+      <span class="marquee-item">CSV import from any broker</span>
+      <span class="marquee-item">Prop firm trader ready</span>
+    </div>
+  </div>
+
+  <!-- ══ VALUE PROPS ══ -->
+  <section class="props-bg">
+    <div class="section-inner">
+      <div class="section-label reveal">Why TradePerformance</div>
+      <h2 class="reveal">Stop renting your edge.</h2>
+      <p class="section-desc reveal">Most trading journals are cloud-first subscription tools built for stock traders. TradePerformance is built differently — for the active trader who takes performance seriously.</p>
+      <div class="props-grid">
+        <div class="prop-card reveal reveal-delay-1">
+          <span class="prop-icon">Local-first</span>
+          <div class="prop-title">Your data stays on your machine.</div>
+          <p class="prop-desc">By default, your trades, journal entries, and strategy data are stored locally on your device. No third party has access to your edge. Optional cloud sync available when you want it.</p>
+        </div>
+        <div class="prop-card reveal reveal-delay-2">
+          <span class="prop-icon">Performance OS</span>
+          <div class="prop-title">More than a journal. A system.</div>
+          <p class="prop-desc">Session debriefs, playbook tracking, pre-trade checklists, mental scoring, and AI coaching — all connected. Not just a place to log trades, but a system to actually improve.</p>
+        </div>
+        <div class="prop-card reveal reveal-delay-3">
+          <span class="prop-icon">Ownership</span>
+          <div class="prop-title">Pay once. Own it forever.</div>
+          <p class="prop-desc">Choose a one-time purchase or a subscription — your call. Either way, no feature gating, no data held hostage, no pressure. Your journal, your terms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FEATURES ══ -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="section-label reveal">Features</div>
+      <h2 class="reveal">Everything you need.<br>Nothing you don't.</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-num">01</div>
+          <div class="feature-title">Comprehensive Journaling</div>
+          <p class="feature-desc">A fast, lightweight journaling system designed for active trading days. Log trades, emotions, and observations in seconds — not minutes. Built to be used during the session, not just after.</p>
+          <span class="feature-tag">Daily workflow</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">02</div>
+          <div class="feature-title">AI Performance Coaching</div>
+          <p class="feature-desc">An AI coach that analyzes your journal and trade data to surface behavioral patterns, flag consistency issues, and give you specific, actionable feedback on where your edge is — and where it isn't.</p>
+          <span class="feature-tag">Web + Desktop</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">03</div>
+          <div class="feature-title">Playbook & Strategy Tracking</div>
+          <p class="feature-desc">Define your setups, run pre-trade checklists before every entry, and track which strategies are actually working. See your playbook adherence over time and know exactly what to cut.</p>
+          <span class="feature-tag">Edge identification</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">04</div>
+          <div class="feature-title">Order Flow Compatible</div>
+          <p class="feature-desc">Built with order flow traders in mind. Import trades from any major platform via CSV or direct connection, with full support for tick data and the context that matters to serious futures and active traders.</p>
+          <span class="feature-tag">All platforms</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">05</div>
+          <div class="feature-title">Deep Performance Analytics</div>
+          <p class="feature-desc">Win rate by setup, session, time of day, and market condition. Equity curves, drawdown analysis, consistency scoring. The numbers that actually tell you something about your trading.</p>
+          <span class="feature-tag">Analytics</span>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-num">06</div>
+          <div class="feature-title">Chart Markup & Trade Review</div>
+          <p class="feature-desc">Annotate your charts directly in the app. Draw, arrow, and note on screenshots tied to specific trades. Your analysis lives with your trade history, permanently.</p>
+          <span class="feature-tag">Desktop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DESKTOP/WEB ══ -->
+  <section class="props-bg">
+    <div class="section-inner">
+      <div class="section-label reveal">Desktop + Web</div>
+      <h2 class="reveal">Full power on desktop.<br>Access anywhere on web.</h2>
+      <p class="section-desc reveal">TradePerformance is built desktop-first for maximum performance and privacy — with a web companion so your journal goes wherever you do.</p>
+      <div class="split-grid">
+        <div class="split-card primary reveal">
+          <span class="split-badge primary">Desktop App</span>
+          <div class="split-title">Your full performance OS.</div>
+          <p class="split-desc">The complete TradePerformance experience. Local storage, every feature, maximum speed.</p>
+          <ul class="split-list">
+            <li>Local-first data storage by default</li>
+            <li>Full chart markup &amp; annotation tools</li>
+            <li>Tick data &amp; order flow review</li>
+            <li>Trade replay &amp; session playback</li>
+            <li>AI coaching &amp; behavioral analysis</li>
+            <li>All analytics &amp; reporting features</li>
+            <li>Optional cloud sync for web access</li>
+          </ul>
+        </div>
+        <div class="split-card reveal reveal-delay-1">
+          <span class="split-badge secondary">Web Companion</span>
+          <div class="split-title">Your journal, anywhere.</div>
+          <p class="split-desc">Access your journal and core analytics from any browser. Syncs with your desktop when cloud sync is enabled.</p>
+          <ul class="split-list">
+            <li>Journal review &amp; entry on the go</li>
+            <li>Performance dashboard &amp; analytics</li>
+            <li>Trade calendar &amp; history</li>
+            <li>AI coaching access</li>
+            <li>Playbook reference</li>
+            <li>Synced data when connected</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MARKETS ══ -->
+  <section id="markets">
+    <div class="section-inner">
+      <div class="section-label reveal">Markets supported</div>
+      <h2 class="reveal">Built for active traders<br>across every market.</h2>
+      <p class="section-desc reveal">Whether you trade futures, crypto, forex, or equities — TradePerformance works with your workflow. Import from any major platform via CSV or direct data connection.</p>
+      <div class="markets-grid">
+        <div class="market-card first reveal">
+          <div class="market-order">Primary focus</div>
+          <div class="market-name">Futures</div>
+          <p class="market-desc">NQ, ES, CL, GC and all major futures contracts. Built for prop firm and independent traders.</p>
+        </div>
+        <div class="market-card reveal reveal-delay-1">
+          <div class="market-order">Supported</div>
+          <div class="market-name">Crypto</div>
+          <p class="market-desc">Spot and perpetual futures across all major exchanges and trading pairs.</p>
+        </div>
+        <div class="market-card reveal reveal-delay-2">
+          <div class="market-order">Supported</div>
+          <div class="market-name">Forex</div>
+          <p class="market-desc">All major, minor, and exotic pairs. Compatible with MT4, MT5, and all standard brokers.</p>
+        </div>
+        <div class="market-card reveal reveal-delay-3">
+          <div class="market-order">Supported</div>
+          <div class="market-name">Equities</div>
+          <p class="market-desc">Stocks and options across all major exchanges. Import from any broker via CSV.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRICING ══ -->
+  <section class="pricing-bg" id="pricing">
+    <div class="section-inner">
+      <div class="section-label reveal" style="text-align:center">Pricing</div>
+      <h2 class="reveal" style="text-align:center">Your journal.<br>Your terms.</h2>
+      <div class="pricing-box reveal">
+        <div class="pricing-eyebrow">Founders Waitlist</div>
+        <div class="pricing-headline">Two ways to own<br>TradePerformance.</div>
+        <p class="pricing-sub">Choose what works for you — a one-time purchase that's yours forever, or a flexible subscription. Both include the full feature set.</p>
+        <div class="pricing-options">
+          <div class="pricing-option featured">
+            <div class="pricing-option-label">One-time purchase</div>
+            <div class="pricing-option-value">Pay once.</div>
+            <div class="pricing-option-note">Own it forever. All future updates included.</div>
+          </div>
+          <div class="pricing-option">
+            <div class="pricing-option-label">Subscription</div>
+            <div class="pricing-option-value">Monthly or annual.</div>
+            <div class="pricing-option-note">Flexible. Cancel any time.</div>
+          </div>
+        </div>
+        <p class="pricing-waitlist-note">Exact pricing announced at launch. Founders waitlist members receive early access pricing.</p>
+        <a href="#waitlist-2" class="btn-primary" style="display:inline-block;text-decoration:none;padding:14px 32px">Join the founders waitlist →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA ══ -->
+  <section>
+    <div class="cta-inner" id="waitlist-2">
+      <div class="section-label reveal" style="text-align:center">Get early access</div>
+      <h2 class="reveal">Be first in line.</h2>
+      <p class="section-desc reveal" style="margin: 0 auto 40px; text-align:center">Founders waitlist members get early access, founders pricing, and direct input into what we build. No commitment required.</p>
+      <div class="reveal">
+        <form class="waitlist-form" id="waitlistForm2" style="justify-content:center">
+          <input type="email" id="emailInput2" placeholder="your@email.com" required />
+          <button type="submit" class="btn-primary">Join Waitlist</button>
+        </form>
+        <div class="waitlist-success" id="waitlistSuccess2">
+          ✓ &nbsp;You're on the founders list. Talk soon.
+        </div>
+        <p class="waitlist-note" style="margin-top:12px; text-align:center">No spam. No commitment. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DISCLAIMER ══ -->
+  <div class="disclaimer">
+    <div class="disclaimer-inner">
+      <strong style="color:var(--text2)">Risk Disclaimer:</strong> TradePerformance is a journaling and performance analytics tool only. Nothing on this website or within the application constitutes financial, investment, or trading advice. Trading futures, forex, cryptocurrency, and equities involves substantial risk of loss. Past performance is not indicative of future results. You are solely responsible for your trading decisions. TradePerformance Analytics Corp. is not a registered financial advisor or broker-dealer.
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo">
+        <span class="footer-logo-dot"></span>
+        TradePerformance
+      </a>
+      <ul class="footer-links">
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Service</a></li>
+        <li><a href="mailto:hello@tradeperformanceapp.com">Contact</a></li>
+      </ul>
+      <span class="footer-copy">© 2026 TradePerformance Analytics Corp.</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── Waitlist form ──
+    const ENDPOINT = 'https://formspree.io/f/mgopdebe';
+
+    function setupForm(formId, inputId, successId) {
+      const form = document.getElementById(formId);
+      const input = document.getElementById(inputId);
+      const success = document.getElementById(successId);
+      if (!form) return;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.textContent = 'Joining...';
+        btn.disabled = true;
+        try {
+          await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ email: input.value })
+          });
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } catch(err) {
+          btn.textContent = 'Join Waitlist';
+          btn.disabled = false;
+        }
+      });
+    }
+
+    setupForm('waitlistForm',  'emailInput',  'waitlistSuccess');
+    setupForm('waitlistForm2', 'emailInput2', 'waitlistSuccess2');
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
