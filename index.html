@@ -1034,8 +1034,6 @@
 
   <script>
     // ── Waitlist form ──
-    const ENDPOINT = 'https://formspree.io/f/mgopdebe';
-
     function setupForm(formId, inputId, successId) {
       const form = document.getElementById(formId);
       const input = document.getElementById(inputId);
@@ -1047,11 +1045,12 @@
         btn.textContent = 'Joining...';
         btn.disabled = true;
         try {
-          await fetch(ENDPOINT, {
+          const res = await fetch('/api/subscribe', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ email: input.value })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: input.value.trim() })
           });
+          if (!res.ok) throw new Error('Failed');
           form.style.display = 'none';
           success.style.display = 'block';
         } catch(err) {
