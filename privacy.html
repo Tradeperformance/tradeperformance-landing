@@ -39,6 +39,12 @@
     footer { border-top: 1px solid var(--border); padding: 24px 48px; text-align: center; font-size: 13px; color: var(--text3); }
     @media (max-width: 640px) { nav { padding: 0 24px; } .wrap { padding: 48px 24px 72px; } }
   </style>
+
+  <!-- ═══ VERCEL WEB ANALYTICS ═══ -->
+  <script type="module">
+    import { inject } from 'https://cdn.jsdelivr.net/npm/@vercel/analytics@1/dist/index.js';
+    inject();
+  </script>
 </head>
 <body>
   <nav>
